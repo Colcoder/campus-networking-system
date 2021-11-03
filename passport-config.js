@@ -1,37 +1,61 @@
-const fs = require("fs");
-const path = require("path");
-const JwtStrategy = require("passport-jwt").Strategy;
-const extractJwt = require("passport-jwt").ExtractJwt;
-const { getUserByDBId } = require("./utility");
-
-// local variable declarations
-const pathToKey = path.join(__dirname, "./cryptography/id_rsa_pub.pem");
-const PUB_KEY = fs.readFileSync(pathToKey, "utf-8");
-const options = {
-  jwtFromRequest: extractJwt.fromAuthHeaderAsBearerToken(),
-  secretOrKey: PUB_KEY,
-  algorithms: ["RS256"],
-};
+const LocalStrategy = require("passport-local").Strategy;
+const bcrypt = require("bcrypt");
+const { getUserByUsername, getUserByDBId } = require("./utility");
 
 const initializePassport = (passport) => {
-  const authenticateUser = async (payload, done) => {
-    const user = await getUserByDBId(payload.sub);
+  const authenticateUser = async (username, password, done) => {
+    const user = await getUserByUsername(username);
+
+    if (!user) {
+      return done(
+        {
+          error: {
+            code: "auth/InvalidUsername",
+            message: "No user with given username exists",
+          },
+        },
+        false
+      );
+    }
     try {
-      user ? done(null, user) : done(null, false);
+      if (await bcrypt.compare(password, user.password)) {
+        return done(null, user);
+      }
+      return done(
+        {
+          error: {
+            code: "auth/InvalidPassword",
+            message: "Password Provided is incorect",
+          },
+        },
+        false,
+        {
+          error: {
+            code: "auth/InvalidPassword",
+            message: "Password Provided is incorect",
+          },
+        }
+      );
     } catch (error) {
-      return done(error, false);
+      console.log(error);
+      return done(error, false, {
+        error: {
+          code: "auth/generic",
+          message: "An Error Occured during authentication please try again",
+        },
+      });
     }
   };
 
-  passport.use(new JwtStrategy(options, authenticateUser));
-
+  passport.use(
+    new LocalStrategy({ usernameField: "username" }, authenticateUser)
+  );
   // strategy config
-  passport.serializeUser((user, done) => {
-    return done(null, user._id);
-  });
-  passport.deserializeUser(async (id, done) => {
-    return done(null, getUserByDBId(id));
-  });
+
+  passport.serializeUser((user, done) => done(null, user.username));
+  passport.deserializeUser(async (id, done) =>
+    done(null, await getUserByDBId(id))
+  );
 };
 
 module.exports = initializePassport;
