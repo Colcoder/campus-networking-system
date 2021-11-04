@@ -37,7 +37,6 @@ const initializePassport = (passport) => {
         }
       );
     } catch (error) {
-      console.log(error);
       return done(error, false, {
         error: {
           code: "auth/generic",
@@ -52,7 +51,7 @@ const initializePassport = (passport) => {
   );
   // strategy config
 
-  passport.serializeUser((user, done) => done(null, user.username));
+  passport.serializeUser((user, done) => done(null, user._id));
   passport.deserializeUser(async (id, done) =>
     done(null, await getUserByDBId(id))
   );

@@ -14,12 +14,12 @@ const authRoutes = (Alumni, Employer, Dean) => {
     })
   );
 
-  // registration endpointfor all account types
+  // registration endpoint for all account types
   authRouter.route("/register").post(async (req, res) => {
-    // request body must contain a password, username and role based on account type to be created
+    // request body must contain a password, username and accountType based on account type to be created
     try {
       const salt = await bcrypt.genSalt();
-      if (!req.body.password || !req.body.role || !req.body.username) {
+      if (!req.body.password || !req.body.accountType || !req.body.username) {
         throw new CustomError(
           "Password and username required.",
           "Missing Field"
@@ -31,7 +31,7 @@ const authRoutes = (Alumni, Employer, Dean) => {
         return res.status(400).json({ message: "Username already in use" });
       }
       const hashedPassword = await bcrypt.hash(req.body.password, salt);
-      const user = new models[req.body.role]({
+      const user = new models[req.body.accountType]({
         ...req.body,
         password: hashedPassword,
       });
