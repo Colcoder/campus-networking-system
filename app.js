@@ -23,7 +23,7 @@ const db = mongoose.connect(
   (err) => {
     err
       ? console.log(`there is a problem: ${err.message}`)
-      : console.log("DB Successfully connected");
+      : console.log('DB successfully connected');
   }
 );
 // maintain connection to db
@@ -44,12 +44,14 @@ initializePassport(passport);
 
 // allow for api to pare/recieve json in request body
 app.use(express.json());
+app.use(express.urlencoded({extended:true}));
 
 //css static file
 app.use(express.static(path.join(__dirname, "/public")));
 
 // adding routes
 app.use(require("./routes"));
+
 
 //server
 app.listen(port, () => {

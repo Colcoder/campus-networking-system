@@ -65,7 +65,7 @@ const getUserByDBId = async (id) => {
 const checkDean = (req, res, next) => {
   // check if logged in account is a dean
   return !res.user && req.user.accountType !== "dean"
-    ? res.status(401).json({ message: "Sorry! Anauthorized." })
+    ? res.status(401).json({ message: "Sorry! Unauthorized." })
     : next();
 };
 

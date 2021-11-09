@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h1 id="dashboard-welcome-message">WELCOME TO YOUR DASHBOARD !!!</h1>
+    <div class="dashboard-links">
+        <a href=""><p id="check-alumni">Check alumni</p></a>
+        <a href=""><p id="check-alumni">Check employers</p></a>
+    </div>
+    <div class="alumni-update-form">
+      <p>Dean? Please enter username of alumnus to update details</p>
+      <form action="">
+          <label for="username">Alumnus Username :</label>
+          <input type="text" name="username" id="username" required>
+          
+          <label for="grades">Select grade :</label>
+
+          <input type="text" name="grade" list="grade">
+          <datalist id="grade">
+            <option value="First-class honors">
+            <option value="Second-class(upper)">
+            <option value="Second-class(lower)">
+            <option value="Pass"> 
+         </datalist>
+
+         <label for="availability">Change Availability :</label>
+         <input type="text" name="availability" list="availability">
+         <datalist id="availability">
+           <option value="Available">
+           <option value="Unavailable">
+         </datalist>      
+         <input type="submit" value="UPDATE" id="update-btn">
+      </form>
+    </div>
+    
+</body>
+</html>

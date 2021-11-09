@@ -47,6 +47,11 @@ body{
       color:rgb(34, 34, 105) ;
       font-weight: 600;
   }
+ 
+  .categories a{
+      text-decoration: none;
+  }
+
   #dean{
       padding: 1rem;
       border-radius: 2rem;
@@ -65,4 +70,413 @@ body{
   .categories p:hover{
       background-color:rgb(34, 34, 105) ;
       color: white;
+  }
+
+  .dean-body{
+      background: url('./dean-background.jpg')center center no-repeat scroll;
+      height: 100vh;
+  }
+  
+  #login-below{
+      font-size: x-large;
+      font-weight: 600;
+  }
+
+  .dean-form-section{
+      text-align: center;
+      font-family: sans-serif;
+  }
+  .dean-form{
+     background-color:rgb(238, 172, 49) ; 
+     border: none;
+     margin: 0 auto;
+     height: 300px;
+     width: 600px;
+     border-radius: 0.5em;
+     padding-top: 1.5em;
+     font-size: large;
+  }
+
+  .dean-form label{
+      display: block;
+      margin-top: 0.5em;
+  }
+  .dean-form input {
+      border-radius: 0.3rem;
+      border: none;
+      width: 5cm;
+      padding: 0.3rem;
+  }
+
+  #login-btn{
+      display: block;
+      width: 2.2cm;
+      margin-left: 15.5em;
+      margin-top: 1.5em;
+      padding: 0.5em;
+      cursor: pointer;
+      background-color:rgb(34, 34, 105)  ;
+      color: white;
+      font-size: small;
+      font-weight: bold;
+  }
+
+  #login-btn:hover{
+     filter: brightness(2);
+  }
+
+  .dean-form a{
+      cursor: pointer;
+      text-decoration: underline;
+      color:rgb(34, 34, 105) ;
+  }
+
+  .dean-reg-body{
+    background: url('./dean-background.jpg')center center no-repeat scroll;
+    height: 100vh;
+  }
+
+  .dean-form-reg-section{
+    text-align: center;
+    font-family: sans-serif;
+  }
+
+  #dean-reg-signup{
+      font-weight: 600;
+      font-size: x-large;
+  }
+
+  .dean-reg-form{
+    background-color:rgb(238, 172, 49) ; 
+    border: none;
+    margin: 0 auto;
+    height: 300px;
+    width: 600px;
+    border-radius: 0.5em;
+    padding-top: 1.5em;
+    font-size: large;
+  }
+
+  .dean-reg-form label{
+    display: block;
+    margin-top: 0.5em;  
+  }
+
+  .dean-reg-form input{
+    border-radius: 0.3rem;
+    border: none;
+    width: 5cm;
+    padding: 0.3rem; 
+  }
+
+  #submit-reg-dean-btn{
+    display: block;
+    width: 2.2cm;
+    margin-left: 15.5em;
+    margin-top: 1.5em;
+    padding: 0.5em;
+    cursor: pointer;
+    background-color:rgb(34, 34, 105)  ;
+    color: white;
+    font-size: small;
+    font-weight: bold;
+  }
+
+  #submit-reg-dean-btn:hover{
+    filter: brightness(2);
+  }
+
+  #alumni-login-message{
+      font-size: x-large;
+      font-weight: 700;
+  }
+
+  .alumni-login-body{
+    background: url('./dean-background.jpg')center center no-repeat scroll;
+    height: 100vh;
+  }
+
+  .alumni-form-section{
+    text-align: center;
+    font-family: sans-serif;
+  }
+
+  .alumni-form{
+    background-color:rgb(238, 172, 49) ; 
+    border: none;
+    margin: 0 auto;
+    height: 300px;
+    width: 600px;
+    border-radius: 0.5em;
+    padding-top: 1.5em;
+    font-size: large;
+  }
+
+  .alumni-form label{
+    display: block;
+    margin-top: 0.5em;  
+  }
+
+  .alumni-form input{
+    border-radius: 0.3rem;
+    border: none;
+    width: 5cm;
+    padding: 0.3rem; 
+  }
+
+  #login-btn-alumni{
+    display: block;
+    width: 2.2cm;
+    margin-left: 15.5em;
+    margin-top: 1.5em;
+    padding: 0.5em;
+    cursor: pointer;
+    background-color:rgb(34, 34, 105)  ;
+    color: white;
+    font-size: small;
+    font-weight: bold;
+  }
+
+  #login-btn-alumni:hover{
+    filter: brightness(2); 
+  }
+
+  .alumni-registration-body{
+    background: url('./dean-background.jpg')center center no-repeat scroll;
+    height: 100vh; 
+  }
+
+  .alumni-reg-form-section{
+    text-align: center;
+    font-family: sans-serif;
+  }
+
+  .alumni-reg-form{
+    background-color:rgb(238, 172, 49) ; 
+    border: none;
+    margin: 0 auto;
+    height: 600px;
+    width: 600px;
+    border-radius: 0.5em;
+    padding-top: 1.5em;
+    font-size: large;
+  }
+
+  .alumni-reg-form label{
+    display: block;
+    margin-top: 0.5em;  
+  }
+
+  .alumni-reg-form input{
+    border-radius: 0.3rem;
+    border: none;
+    width: 5cm;
+    padding: 0.3rem; 
+  }
+
+  #send-btn-alumni{
+    display: block;
+    width: 2.2cm;
+    margin-left: 15.5em;
+    margin-top: 1.5em;
+    padding: 0.5em;
+    cursor: pointer;
+    background-color:rgb(34, 34, 105)  ;
+    color: white;
+    font-size: small;
+    font-weight: bold; 
+  }
+
+  #send-btn-alumni:hover{
+    filter: brightness(2);   
+  }
+
+  #alumni-signup-message{
+      font-size: x-large;
+      font-weight: 600;
+  }
+
+  .emp-login-body{
+    background: url('./dean-background.jpg')center center no-repeat scroll;
+    height: 100vh;
+  }
+
+  .emp-form-section{
+    text-align: center;
+    font-family: sans-serif;
+  }
+
+  .emp-form{
+    background-color:rgb(238, 172, 49) ; 
+    border: none;
+    margin: 0 auto;
+    height: 300px;
+    width: 600px;
+    border-radius: 0.5em;
+    padding-top: 1.5em;
+    font-size: large;
+  }
+
+  .emp-form label{
+    display: block;
+    margin-top: 0.5em;  
+  }
+
+  .emp-form input{
+    border-radius: 0.3rem;
+    border: none;
+    width: 5cm;
+    padding: 0.3rem; 
+  }
+
+  #emp-login-btn{
+    display: block;
+    width: 2.2cm;
+    margin-left: 15.5em;
+    margin-top: 1.5em;
+    padding: 0.5em;
+    cursor: pointer;
+    background-color:rgb(34, 34, 105)  ;
+    color: white;
+    font-size: small;
+    font-weight: bold;
+  }
+
+  #emp-login-btn:hover{
+    filter: brightness(2);
+  }
+
+  #emp-login-message{
+    font-size: x-large;
+    font-weight: 600;
+  }
+
+  input{
+    caret-color: rgb(238, 172, 49);
+  }
+
+  .emp-reg-body{
+    background: url('./dean-background.jpg')center center no-repeat scroll;
+    height: 100vh;
+  }
+
+  .emp-reg-form-section{
+    text-align: center;
+    font-family: sans-serif;
+  }
+
+  .emp-reg-form{
+    background-color:rgb(238, 172, 49) ; 
+    border: none;
+    margin: 0 auto;
+    height: 300px;
+    width: 600px;
+    border-radius: 0.5em;
+    padding-top: 1.5em;
+    font-size: large;
+  }
+
+  .emp-reg-form label{
+    display: block;
+    margin-top: 0.5em;  
+  }
+
+  .emp-reg-form input{
+    border-radius: 0.3rem;
+    border: none;
+    width: 5cm;
+    padding: 0.3rem; 
+  }
+
+  #submit-reg-emp-btn{
+    display: block;
+    width: 2.2cm;
+    margin-left: 15.5em;
+    margin-top: 1.5em;
+    padding: 0.5em;
+    cursor: pointer;
+    background-color:rgb(34, 34, 105)  ;
+    color: white;
+    font-size: small;
+    font-weight: bold;
+  }
+
+  #submit-reg-emp-btn:hover{
+    filter: brightness(2);
+  }
+
+  #emp-reg-message{
+   font-size: x-large;
+   font-weight: 600; 
+  }
+
+  #dashboard-welcome-message{
+    text-align: center;
+    font-family: sans-serif;
+    color:rgb(34, 34, 105)  ;
+  }
+
+  #check-alumni{
+    background-color: rgb(238, 172, 49);
+    text-align: center;
+    color: white;
+    font-size: x-large;
+    font-weight: 400;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    width: 4cm;
+    margin-left: 2rem;
+  }
+
+  #check-alumni:hover{
+    color:rgb(238, 172, 49) ;
+    background-color: rgb(34, 34, 105) ;
+  }
+
+  .dashboard-links a{
+  text-decoration: none;
+  }
+
+  .alumni-update-form{
+    background-color:rgb(34, 34, 105) ; 
+    border: none;
+    margin: 0 auto;
+    height: 300px;
+    width: 600px;
+    border-radius: 0.5em;
+    padding-top: 1.5em;
+    font-size: large;
+    text-align: center;
+    color: white;
+  }
+
+  .alumni-update-form label{
+    display: block;
+    margin-top: 0.5em;  
+  }
+
+  .alumni-update-form input{
+    border-radius: 0.3rem;
+    border: none;
+    width: 5cm;
+    padding: 0.3rem; 
+    caret-color: rgb(34, 34, 105);
+  }
+
+  #update-btn{
+    display: block;
+    width: 2.2cm;
+    margin-left: 15.5em;
+    margin-top: 1.5em;
+    padding: 0.5em;
+    cursor: pointer;
+    background-color:rgb(238, 172, 49) ;
+    color: white;
+    font-size: small;
+    font-weight: bold;
+  }
+
+  #update-btn:hover{
+    filter: brightness(0.7);
+    color: rgb(34, 34, 105);
   }

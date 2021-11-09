@@ -28,6 +28,7 @@ const deanRoutes = (Dean) => {
       res.status(200).json(newDeans);
     });
   });
+  
   deanRouter
     .route("/:username")
     .get(checkDean, (req, res) => {
