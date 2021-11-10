@@ -9,13 +9,14 @@ const authRoutes = (Alumni, Employer, Dean) => {
 
   authRouter.route("/login").post(
     passport.authenticate("local", {
-      successRedirect: "/",
+      successRedirect: "/dashboard",
       failureRedirect: "/login",
     })
   );
 
   // registration endpoint for all account types
   authRouter.route("/register").post(async (req, res) => {
+    console.log(req.body);
     // request body must contain a password, username and accountType based on account type to be created
     try {
       const salt = await bcrypt.genSalt();
@@ -24,6 +25,7 @@ const authRoutes = (Alumni, Employer, Dean) => {
           "Password and username required.",
           "Missing Field"
         );
+        
       }
       // check if username already in use
       const userExists = await getUserByUsername(req.body.username);

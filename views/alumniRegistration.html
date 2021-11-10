@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni Sign Up</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body class="alumni-registration-body">
+   <div class="alumni-reg-form-section">
+       <p id="alumni-signup-message">Sign Up!!!</p>
+    <div class="alumni-reg-form">
+        <form method="POST" action="/api/auth/register">
+            <label for="firstname">First name :</label>
+            <input type="text" name="firstname" id="firstname" required>
+
+            <label for="lastName">Last name :</label>
+            <input type="text" name="lastName" id="lastName" required>
+
+
+            <label for="course">Course :</label>
+            <input type="text" name="course" id="course" required>
+
+            <label for="registrationNumber">Registration number:</label>
+            <input type="text" name="registrationNumber" id="registrationNumber" required>
+
+            <label for="grade">Grade :</label>
+            <input type="text" name="grade" id="grade" required>
+
+            <label for="username">Username :</label>
+            <input type="text" name="username" id="username" required>
+
+            <label for="accountType">Account Type :</label>
+            <input type="text" name="accountType" id="accountType" placeholder="dean,alumni,employer" required>
+
+            <label for="availability">Availability :</label>
+            <input type="text" name="availability" id="availability" placeholder="available,not available" required>
+             
+            <label for="password">Password :</label>
+            <input type="password" name="password" id="password" required>
+
+            <input type="submit" value="SEND" id="send-btn-alumni">
+        </form>
+    </div>
+   </div>
+</body>
+</html>
