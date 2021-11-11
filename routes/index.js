@@ -12,7 +12,6 @@ const authRoutes = require("./api/authRoutes")(
   Dean
 );
 
-
 // api routes
 router.use("/api/auth", authRoutes);
 router.use("/api/dean", deanRoutes);
@@ -20,46 +19,41 @@ router.use("/api/alumni", alumniRoutes);
 router.use("/api/employer", employerRoutes);
 
 // frontend routes
- 
+
 router.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/index.html"));
 });
 
-router.get('/dashboard',(req,res)=>{
-  res.sendFile(path.join(__dirname, '../views/dashboard.html'));
+router.get("/dashboard", (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/dashboard.html"));
 });
 
 //dean frontend
-router.get('/deanLogin',(req,res)=>{
-  res.sendFile(path.join(__dirname, '../views/dean.html'));
+router.get("/deanLogin", (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/dean.html"));
 });
 
-router.route('/deanLogin/Registration')
-  .get((req,res)=>{
-    res.sendFile(path.join(__dirname, '../views/deanRegister.html'));
-  });
+router.route("/deanLogin/Registration").get((req, res) => {
+  res.sendFile(path.join(__dirname, "../views/deanRegister.html"));
+});
 
-  //alumni frontend
-  router.get('/alumniLogin',(req,res)=>{
-    res.sendFile(path.join(__dirname, '../views/alumni.html'));
-  });
+//alumni frontend
+router.get("/alumniLogin", (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/alumni.html"));
+});
 
-  router.route('/alumniLogin/signUp')
-     .get((req,res)=>{
-       res.sendFile(path.join(__dirname,'../views/alumniRegistration.html'));
-     });
+router.route("/alumniLogin/signUp").get((req, res) => {
+  res.sendFile(path.join(__dirname, "../views/alumniRegistration.html"));
+});
 
-   //employer frontend
-   router.get('/employerLogin',(req,res)=>{
-     res.sendFile(path.join(__dirname, '../views/employer.html'));
-   });  
+//employer frontend
+router.get("/employerLogin", (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/employer.html"));
+});
 
-   router.route('/employerLogin/signUp')
-       .get((req,res)=>{
-         res.sendFile(path.join(__dirname, '../views/employerRegistration.html'));
-       });
-
-      
+router.route("/employerLogin/signUp").get((req, res) => {
+  res.sendFile(path.join(__dirname, "../views/employerRegistration.html"));
+});
 
 // fallback for routes not configured, the 404 page/response
 router.use((req, res) => {
@@ -67,4 +61,3 @@ router.use((req, res) => {
 });
 
 module.exports = router;
-

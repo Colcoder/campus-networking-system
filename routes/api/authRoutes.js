@@ -16,7 +16,6 @@ const authRoutes = (Alumni, Employer, Dean) => {
 
   // registration endpoint for all account types
   authRouter.route("/register").post(async (req, res) => {
-    console.log(req.body);
     // request body must contain a password, username and accountType based on account type to be created
     try {
       const salt = await bcrypt.genSalt();
@@ -25,10 +24,10 @@ const authRoutes = (Alumni, Employer, Dean) => {
           "Password and username required.",
           "Missing Field"
         );
-        
       }
       // check if username already in use
       const userExists = await getUserByUsername(req.body.username);
+      console.log(req.body);
       if (userExists) {
         return res.status(400).json({ message: "Username already in use" });
       }
@@ -40,9 +39,8 @@ const authRoutes = (Alumni, Employer, Dean) => {
       user.save((err) => {
         if (err) throw err;
       });
-      return res
-        .status(201)
-        .json({ message: user.username + " account successfully created." });
+      return res.status(201).redirect("/dashboard");
+      // .json({ message: user.username + " account successfully created." });
     } catch (error) {
       res.json({ error: error.message, code: error.name });
     }

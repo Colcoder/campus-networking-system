@@ -36,10 +36,3 @@ const registerAccount = (_user) => {
     return _response.json();
   });
 };
-
-module.exports = {
-  fetchAllDeans,
-  editAlumniDetails,
-  deleteAlumniAccount,
-  registerAccount
-};
