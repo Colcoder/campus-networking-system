@@ -9,7 +9,7 @@ const authRoutes = (Alumni, Employer, Dean) => {
 
   authRouter.route("/login").post(
     passport.authenticate("local", {
-      successRedirect: "/",
+      successRedirect: "/dashboard",
       failureRedirect: "/login",
     })
   );
@@ -27,6 +27,7 @@ const authRoutes = (Alumni, Employer, Dean) => {
       }
       // check if username already in use
       const userExists = await getUserByUsername(req.body.username);
+      console.log(req.body);
       if (userExists) {
         return res.status(400).json({ message: "Username already in use" });
       }
@@ -38,9 +39,8 @@ const authRoutes = (Alumni, Employer, Dean) => {
       user.save((err) => {
         if (err) throw err;
       });
-      return res
-        .status(201)
-        .json({ message: user.username + " account successfully created." });
+      return res.status(201).redirect("/dashboard");
+      // .json({ message: user.username + " account successfully created." });
     } catch (error) {
       res.json({ error: error.message, code: error.name });
     }
