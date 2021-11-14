@@ -14,6 +14,14 @@ const fetchAllAlumni = () => {
   });
 };
 
+const fetchAllEmployers = () => {
+  return fetch(`/api/employer`, {
+    method: "GET",
+  }).then((_response) => {
+    return _response.json();
+  });
+};
+
 const editAlumniDetails = (_user) => {
   return fetch(`/api/alumni/${_user.username}`, {
     method: "PATCH",
