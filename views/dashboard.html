@@ -11,58 +11,107 @@
   <body>
     <h1 id="dashboard-welcome-message">WELCOME TO YOUR DASHBOARD !!!</h1>
     <div class="dashboard-links">
-      <button href="" onclick="fetchAlumni()">
-        <p id="check-alumni">Check alumni</p>
+      <button class="check-alumni" onclick="fetchAlumni()">Check alumni</button>
+      <button class="check-alumni" onclick="fetchEmployers()">
+        Check employers
       </button>
-      <button href=""><p id="check-alumni">Check employers</p></button>
     </div>
     <div class="alumni-update-form">
       <p>Dean? Please enter username of alumnus to update details</p>
       <form action="" onsubmit="updateAlumni(event)">
         <label for="username">Alumnus Username :</label>
-        <input type="text" name="username" id="username" required />
+        <input
+          type="text"
+          name="username"
+          id="username"
+          required
+          placeholder="Enter Username"
+        />
 
         <label for="grades">Select grade :</label>
-
-        <input type="text" name="grade" list="grade" />
         <select id="grade">
-          <option value="First-class honors"></option>
-          <option value="Second-class(upper)"></option>
-          <option value="Second-class(lower)"></option>
-          <option value="Pass"></option>
+          <option selected value="" hidden disabled>--select grade--</option>
+          <option value="First-class honors">First-class honors</option>
+          <option value="Second-class(upper)">Second-class(upper)</option>
+          <option value="Second-class(lower)">Second-class(lower)</option>
+          <option value="Pass">Pass</option>
         </select>
 
         <label for="availability">Change Availability :</label>
-        <input type="text" name="availability" list="availability" />
         <select id="availability">
-          <option value="Available"></option>
-          <option value="Unavailable"></option>
+          <option selected value="" hidden disabled>
+            --set availability--
+          </option>
+          <option value="Available">Available</option>
+          <option value="Unavailable">Unavailable</option>
         </select>
 
         <input type="submit" value="UPDATE" id="update-btn" />
       </form>
     </div>
+    <section class="display-results">
+      <h2 class="results-header" id="results-header"></h2>
+      <pre id="display-results"></pre>
+    </section>
   </body>
   <script>
+    const populateResults = (results, type) => {
+      // update results header
+      document.getElementById("results-header").innerText = type;
+      // update data in container
+      document.getElementById("display-results").textContent = JSON.stringify(
+        results,
+        undefined,
+        2
+      );
+      document.getElementById("results-header").scrollIntoView();
+    };
+
+    const handleFetchErrors = (_err) => {
+      alert(_err);
+    };
     // api calls
     const fetchAlumni = () => {
       fetchAllAlumni()
-        .then((_data) => console.log(_data))
-        // TODO: display error to user through alert or error box at top of screen, use elemnent.classlist to show/hide
-        .catch((_err) => console.log(_err));
+        .then((_data) => {
+          _data.errorMessage
+            ? handleFetchErrors(_data.errorMessage)
+            : populateResults(_data, "Alumni List");
+        })
+        .catch((_err) => {
+          handleFetchErrors("Error occured. Please try again");
+          console.log(_err);
+        });
     };
     const fetchEmployers = () => {
-      fetchAllEmployers().then((_data) => console.log(_data));
+      fetchAllEmployers()
+        .then((_data) => {
+          _data.errorMessage
+            ? handleFetchErrors(_data.errorMessage)
+            : populateResults(_data, "Employers List");
+        })
+        .catch((_err) => {
+          handleFetchErrors("Error occured. Please try again");
+          console.log(_err);
+        });
     };
+
     const updateAlumni = (event) => {
       event.preventDefault();
       const username = document.getElementById("username").value;
       const grade = document.getElementById("grade").value;
       const availability = document.getElementById("availability").value;
       editAlumniDetails({ username, grade, availability })
-        .then((_data) => console.log(_data))
-        // TODO: display error to user through alert or error box at top of screen, use elemnent.classlist to show/hide
-        .catch((_err) => console.log(_err));
+        .then((_data) => {
+          _data.errorMessage
+            ? handleFetchErrors(_data.errorMessage)
+            : alert("Succesfully updated");
+          console.log(_data);
+        })
+        .catch((_err) => {
+          handleFetchErrors("Error occured. Please try again");
+          console.log(_err);
+        });
     };
   </script>
 </html>

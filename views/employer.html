@@ -1,28 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Employer Log In</title>
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body class="emp-login-body">
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body class="emp-login-body">
     <div class="emp-form-section">
-        <p id="emp-login-message">Welcome!!! Log in below</p>
-        <div class="emp-form">
-            <form action="">
-                <label for="username">Username :</label>
-                <input type="text" name="username" id="username" required>
+      <p id="emp-login-message">Welcome!!! Log in below</p>
+      <div class="emp-form">
+        <form action="/api/auth/login" method="POST">
+          <label for="username">Username :</label>
+          <input type="text" name="username" id="username" required />
 
-                <label for="username">Password :</label>
-                <input type="password" name="password" id="password" required>
+          <label for="username">Password :</label>
+          <input type="password" name="password" id="password" required />
 
-                <input type="submit" value="Log In" id="emp-login-btn">
-
-            </form>
-            <a href="/employerLogin/signUp"><p>Don't have an account yet? click here to register</p></a>
-        </div>
+          <input type="submit" value="Log In" id="emp-login-btn" />
+        </form>
+        <a href="/employerLogin/signUp"
+          ><p>Don't have an account yet? click here to register</p></a
+        >
+      </div>
     </div>
-</body>
+  </body>
 </html>

@@ -1,31 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Alumni Log in</title>
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body class="alumni-login-body">
-    
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body class="alumni-login-body">
     <div class="alumni-form-section">
-        <p id="alumni-login-message">Student Alumni? Log in below</p>
-     <div class="alumni-form">
-        <form method="post" action="/login">
-            <label for="username">Username :</label>
-            <input type="text" name="username" id="username" required>
-  
-            <label for="password">Password :</label>
-            <input type="password" name="password" id="password" required>
+      <p id="alumni-login-message">Student Alumni? Log in below</p>
+      <div class="alumni-form">
+        <form method="post" action="/api/auth/login">
+          <label for="username">Username :</label>
+          <input type="text" name="username" id="username" required />
 
-            <input type="submit" value="Log in" id="login-btn-alumni">
+          <label for="password">Password :</label>
+          <input type="password" name="password" id="password" required />
+
+          <input type="submit" value="Log in" id="login-btn-alumni" />
         </form>
-        
-        <a href="/alumniLogin/signUp"><p>Don't have an account? Hop in!!</p></a>
 
-     </div>
+        <a href="/alumniLogin/signUp"><p>Don't have an account? Hop in!!</p></a>
+      </div>
     </div>
-    
-</body>
+  </body>
 </html>
