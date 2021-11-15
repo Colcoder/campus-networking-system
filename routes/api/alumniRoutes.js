@@ -5,7 +5,7 @@ const isAuthorized = (req, res, next) => {
   // check if request is from alumni account or dean
   if (
     req.user &&
-    (req.user.username === req.body.username || req.user.accountType === "dean")
+    (req.user.username === req.body.username || req.user.accountType === dean)
   ) {
     return next();
   }
