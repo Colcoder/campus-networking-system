@@ -5,6 +5,7 @@ const { getUserByUsername, getUserByDBId } = require("./utility");
 const initializePassport = (passport) => {
   const authenticateUser = async (username, password, done) => {
     const user = await getUserByUsername(username);
+
     if (!user) {
       return done(
         {

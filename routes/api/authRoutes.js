@@ -10,7 +10,7 @@ const authRoutes = (Alumni, Employer, Dean) => {
   authRouter.route("/login").post(
     passport.authenticate("local", {
       successRedirect: "/dashboard",
-      failureRedirect: "/",
+      failureRedirect: "/login",
     })
   );
 
@@ -27,6 +27,7 @@ const authRoutes = (Alumni, Employer, Dean) => {
       }
       // check if username already in use
       const userExists = await getUserByUsername(req.body.username);
+      console.log(req.body);
       if (userExists) {
         return res.status(400).json({ message: "Username already in use" });
       }

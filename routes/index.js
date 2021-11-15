@@ -28,10 +28,6 @@ router.get("/dashboard", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/dashboard.html"));
 });
 
-router.get("/login", (req, res) => {
-  res.send("he");
-});
-
 //dean frontend
 router.get("/deanLogin", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/dean.html"));
